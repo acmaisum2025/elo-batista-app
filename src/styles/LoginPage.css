@@ -1,0 +1,247 @@
+/* src/styles/LoginPage.css */
+
+/* Importação da fonte Inter do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Reset básico para remover margens e paddings padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Uma fonte moderna e legível */
+    background-color: #f0f2f5; /* Um cinza claro para o fundo */
+}
+
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Garante que o container ocupe a altura total da tela */
+    padding: 20px; /* Um pouco de padding para telas menores */
+}
+
+.auth-container {
+    background-color: #ffffff; /* Fundo branco para o card de login */
+    padding: 40px;
+    border-radius: 12px; /* Bordas mais suaves */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidade */
+    width: 100%;
+    max-width: 400px; /* Largura máxima para o formulário */
+    text-align: center; /* Centraliza o texto dentro do container */
+}
+
+.auth-header {
+    margin-bottom: 30px; /* Espaço abaixo do cabeçalho */
+}
+
+.auth-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 10px; /* Espaço entre o título e o subtítulo */
+}
+
+.auth-subtitle {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333333;
+}
+
+.error-message {
+    background-color: #ffebee; /* Fundo vermelho claro para mensagens de erro */
+    color: #d32f2f; /* Texto vermelho escuro */
+    border: 1px solid #ef9a9a;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 20px; /* Espaço abaixo da mensagem de erro */
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    text-align: left;
+}
+
+.error-icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.auth-form {
+    margin-top: 20px; /* Espaço acima do formulário */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Espaço entre os grupos de formulário (label + input) */
+    text-align: left; /* Alinha labels e inputs à esquerda */
+}
+
+.form-group label {
+    display: block; /* Garante que o label ocupe sua própria linha */
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 8px; /* Espaço entre o label e o input */
+    font-weight: 500;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dddddd; /* Borda suave */
+    border-radius: 8px; /* Bordas arredondadas para os inputs */
+    font-size: 16px;
+    color: #333333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave para o foco */
+}
+
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+    outline: none; /* Remove o outline padrão do navegador */
+    border-color: #007bff; /* Cor da borda ao focar */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra suave ao focar */
+}
+
+.form-group input.input-error {
+    border-color: #d32f2f; /* Borda vermelha para inputs com erro */
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.25);
+}
+
+.forgot-password-link {
+    text-align: right; /* Alinha o link "Esqueceu a senha?" à direita */
+    margin-top: 8px; /* Espaço entre o input de senha e o link */
+    margin-bottom: 25px; /* Espaço antes do botão de Entrar */
+}
+
+.forgot-password-link .link-button {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 14px;
+    color: #007bff; /* Cor primária para links */
+    text-decoration: none; /* Remove sublinhado padrão */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.forgot-password-link .link-button:hover {
+    color: #0056b3; /* Cor mais escura ao passar o mouse */
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+.auth-button {
+    width: 100%;
+    padding: 14px;
+    background-color: #007bff; /* Cor primária para o botão */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
+    margin-bottom: 25px; /* Espaço abaixo do botão de Entrar */
+    display: flex; /* Para centralizar o spinner e o texto */
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-button:hover:not(:disabled) {
+    background-color: #0056b3; /* Cor mais escura ao passar o mouse */
+    transform: translateY(-1px); /* Efeito sutil de "levantar" */
+}
+
+.auth-button:disabled {
+    background-color: #a0c8f5; /* Cor mais clara para botão desabilitado */
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* Estilo para o spinner de carregamento */
+.spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #ffffff;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #aaaaaa;
+    margin-bottom: 25px; /* Espaço abaixo do separador */
+}
+
+.auth-divider span {
+    padding: 0 10px; /* Espaço em volta do texto "ou" */
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.auth-footer {
+    margin-top: 25px; /* Espaço acima do rodapé */
+}
+
+.auth-link {
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 15px; /* Espaço entre o link de cadastro e o de voltar */
+}
+
+.auth-link .signup-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.auth-link .signup-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.back-link {
+    font-size: 14px;
+    color: #777777;
+}
+
+.back-link a {
+    display: inline-flex; /* Para alinhar o ícone e o texto, se você adicionar um */
+    align-items: center;
+    color: #777777;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-link a:hover {
+    color: #333333;
+}
+
+/* Se você quiser adicionar um ícone de seta ao "Voltar para o início" no React, pode fazer assim: */
+/* No seu JSX, dentro do Link:
+   <Link to="/">
+     <svg className="back-arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg>
+     Voltar para o início
+   </Link>
+*/
+.back-arrow-icon {
+    margin-right: 8px; /* Espaço entre a seta e o texto */
+    width: 16px;
+    height: 16px;
+    fill: currentColor; /* Faz o SVG herdar a cor do texto */
+}

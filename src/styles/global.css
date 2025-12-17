@@ -1,0 +1,362 @@
+/* src/styles/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
+
+/* ============================================
+   VARIÁVEIS CSS
+   ============================================ */
+:root {
+  /* Cores Principais */
+  --primary-color: #075E54; /* Verde WhatsApp */
+  --primary-hover: #064d44;
+  --secondary-color: #128C7E; /* Verde mais claro */
+  --accent-color: #25D366; /* Verde WhatsApp claro */
+  
+  /* Cores de Mensagens */
+  --message-sent: #DCF8C6; /* Verde claro para mensagens enviadas */
+  --message-sent-gradient: linear-gradient(135deg, #DCF8C6 0%, #d4f4bc 100%);
+  --message-received: #ffffff;
+  
+  /* Cores de Texto */
+  --text-color: #303030;
+  --text-light: #666666;
+  --text-dark: #1a1a1a;
+  
+  /* Cores de Fundo */
+  --bg-color: #E5DDD5; /* Fundo estilo WhatsApp */
+  --bg-light: #f4f7f6;
+  --card-bg: #ffffff;
+  
+  /* Cores de Borda */
+  --border-color: #e0e0e0;
+  --border-light: rgba(0, 0, 0, 0.05);
+  
+  /* Cores de Status */
+  --error-color: #ff3b30;
+  --error-bg: #fff3cd;
+  --success-color: #4CAF50;
+  --warning-color: #FFC107;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+  
+  /* Transições */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+/* ============================================
+   RESET E BASE
+   ============================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-light);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ============================================
+   CONTAINER DA APLICAÇÃO
+   ============================================ */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+/* ============================================
+   BOTÕES - ESTILOS GLOBAIS
+   ============================================ */
+button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+button.primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+button.primary:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(7, 94, 84, 0.2);
+}
+
+button.secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+button.secondary:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+button.danger {
+  background-color: var(--error-color);
+  color: white;
+}
+
+button.danger:hover:not(:disabled) {
+  background-color: #e5362c;
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+/* ============================================
+   INPUTS - ESTILOS GLOBAIS
+   ============================================ */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 12px 18px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  transition: all var(--transition-normal);
+  background-color: white;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(7, 94, 84, 0.1);
+}
+
+input:disabled,
+textarea:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ============================================
+   MENSAGENS DE ERRO E SUCESSO
+   ============================================ */
+.error-message {
+  color: #856404;
+  background-color: var(--error-bg);
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ffc107;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.error-message::before {
+  content: "⚠️";
+  font-size: 1.2rem;
+}
+
+.success-message {
+  color: #155724;
+  background-color: #d4edda;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #c3e6cb;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.success-message::before {
+  content: "✓";
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   LOADING SPINNER
+   ============================================ */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   SCROLLBAR CUSTOMIZADA
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   UTILITÁRIOS
+   ============================================ */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.gap-3 { gap: 1.5rem; }
+.gap-4 { gap: 2rem; }
+
+/* ============================================
+   RESPONSIVIDADE GLOBAL
+   ============================================ */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  button {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}

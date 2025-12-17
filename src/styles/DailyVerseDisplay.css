@@ -1,0 +1,37 @@
+    /* src/styles/DailyVerseDisplay.css */
+    .daily-verse-container {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .daily-verse-container.error {
+      background-color: #ffe0e0;
+      border-color: #ffb3b3;
+      color: #d32f2f;
+    }
+
+    .verse-title {
+      color: #4CAF50; /* Verde */
+      font-size: 1.5em;
+      margin-bottom: 15px;
+    }
+
+    .verse-text {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 10px;
+      color: #333;
+      font-style: italic;
+    }
+
+    .verse-reference {
+      font-size: 0.9em;
+      color: #666;
+      font-weight: bold;
+    }
